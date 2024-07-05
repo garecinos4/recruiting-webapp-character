@@ -1,24 +1,26 @@
-import { useState } from 'react';
-import './App.css';
-import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from './consts.js';
+import { MantineProvider, Title, AppShell, ScrollArea } from '@mantine/core';
 
+import '@mantine/core/styles.css';
+import Characters from './pages/CharactersPage';
 
 function App() {
-  const [num, setNum] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>React Coding Exercise</h1>
-      </header>
-      <section className="App-section">
-        <div>
-          Value:
-          {num}
-          <button>+</button>
-          <button>-</button>
-        </div>
-      </section>
-    </div>
+    <>
+      <MantineProvider forceColorScheme='dark'>
+        <AppShell header={{ height: 120 }} padding='md'>
+          <AppShell.Header>
+            {' '}
+            <Title>React Coding Exercise</Title>
+          </AppShell.Header>
+
+          <AppShell.Main>
+            <ScrollArea.Autosize mx='auto'>
+              <Characters />
+            </ScrollArea.Autosize>
+          </AppShell.Main>
+        </AppShell>
+      </MantineProvider>
+    </>
   );
 }
 
